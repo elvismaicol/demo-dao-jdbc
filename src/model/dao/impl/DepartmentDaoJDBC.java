@@ -27,7 +27,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		PreparedStatement st = null;
 
 		try {
-			st = conn.prepareStatement("SELECT INTO department "
+			st = conn.prepareStatement("INSERT INTO department "
 					+ "(Name) "
 					+ "VALUES "
 					+ "(?)", 
@@ -104,7 +104,7 @@ public class DepartmentDaoJDBC implements DepartmentDao {
 		ResultSet rs = null;
 
 		try {
-			st = conn.prepareStatement("SELECT * FRON department WHERE Id = ?");
+			st = conn.prepareStatement("SELECT * FROM department WHERE Id = ?");
 			st.setInt(1, id);
 			rs = st.executeQuery();
 			if (rs.next()) {
